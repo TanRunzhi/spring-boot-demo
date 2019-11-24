@@ -1,0 +1,33 @@
+#server:
+#  port: 8080
+#spring:
+#  profiles:
+#    active: prod
+## 3个横线定义不同的代码块
+#---
+#server:
+#  port: 8087
+#spring:
+#  profiles: dev
+#---
+#server:
+#  port: 8089
+#spring:
+#  profiles: prod
+---
+
+---
+
+#
+#person:
+#  lastName: zhangsan
+#  age: 18
+#  boss: false
+#  birth: 2017/12/12
+#  maps: {k1: v1,k2: 12}
+#  lists:
+#    - lisi
+#    - 20
+#  dog:
+#    name: xiaogou
+#    age: 2
