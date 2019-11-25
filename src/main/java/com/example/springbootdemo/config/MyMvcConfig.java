@@ -2,6 +2,13 @@ package com.example.springbootdemo.config;
 
 import com.example.springbootdemo.component.LoginHandlerInterceptor;
 import com.example.springbootdemo.component.MyLocaleResolver;
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.http11.Http11NioProtocol;
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -43,18 +50,18 @@ public class MyMvcConfig implements WebMvcConfigurer {
         * 添加拦截器的配置
         * @param registry
         */
-       @Override
-       public void addInterceptors(InterceptorRegistry registry) {
-         registry.addInterceptor(new LoginHandlerInterceptor())
-             // "/**"  任意多层路径下的任意请求
-             .addPathPatterns("/**")
-             //排除上面的请求外的请求
-             .excludePathPatterns("/","/index.html","/login.html","/user/login")
-             // 排除相关静态资源的映射
-             .excludePathPatterns("/favicon.ico")
-             .excludePathPatterns("/webjars/**","/asserts/**");
-
-       }
+//       @Override
+//       public void addInterceptors(InterceptorRegistry registry) {
+//         registry.addInterceptor(new LoginHandlerInterceptor())
+//             // "/**"  任意多层路径下的任意请求
+//             .addPathPatterns("/**")
+//             //排除上面的请求外的请求
+//             .excludePathPatterns("/","/index.html","/login.html","/user/login")
+//             // 排除相关静态资源的映射
+//             .excludePathPatterns("/favicon.ico")
+//             .excludePathPatterns("/webjars/**","/asserts/**");
+//
+//       }
      };
   }
 
@@ -67,5 +74,33 @@ public class MyMvcConfig implements WebMvcConfigurer {
     return new MyLocaleResolver();
   }
 
-
+  /**
+   * 定制嵌入式的servlet容器相关规则
+   * */
+//  @Bean
+//  public WebServerFactoryCustomizer webServerFactoryCustomizer(){
+//    return new WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>() {
+//      @Override
+//      public void customize(ConfigurableServletWebServerFactory factory) {
+//        ((TomcatServletWebServerFactory)factory).addConnectorCustomizers(new TomcatConnectorCustomizer() {
+//          @Override
+//          public void customize(Connector connector) {
+////            connector.setPort(8099);
+////            Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();
+////            protocol.setMaxConnections(200);
+////            protocol.setMaxThreads(200);
+////            protocol.setSelectorTimeout(3000);
+////            protocol.setSessionTimeout(3000);
+////            protocol.setConnectionTimeout(3000);
+//          }
+//        });
+//      }
+//    };
+//
+////    return (factory) -> {
+////      ((TomcatServletWebServerFactory)factory).addConnectorCustomizers((connector) -> {
+//////            connector.setPort(8099);
+////      });
+////    };
+//  }
 }
