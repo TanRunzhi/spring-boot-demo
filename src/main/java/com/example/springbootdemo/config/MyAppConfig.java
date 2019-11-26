@@ -1,8 +1,12 @@
 package com.example.springbootdemo.config;
 
 import com.example.springbootdemo.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import javax.sql.DataSource;
 
 /**
  * @Configuration 指定当前类是个配置类
@@ -22,6 +26,7 @@ public class MyAppConfig {
     System.out.println("sys.out.prt - in com.example.springbootdemo.config.MyAppConfig.helloService ");
     return new HelloService();
   }
+
 
 
 }
