@@ -12,7 +12,11 @@ import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerF
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
+
+import java.util.Locale;
 
 
 @Configuration
@@ -103,4 +107,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
 ////      });
 ////    };
 //  }
+
+
+
+
+
 }

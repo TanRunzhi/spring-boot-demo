@@ -1,11 +1,15 @@
 package com.example.springbootdemo;
 
 import com.example.springbootdemo.config.MyAppConfig;
+import com.example.springbootdemo.entities.SysUser;
+import com.example.springbootdemo.repository.UserRepository;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -39,5 +43,12 @@ public class SpringBootDemoApplicationTests {
   @Test
   public void testJdbcTemplate(){
     System.out.println(jdbcTemplate.queryForList("select account from t_core_user",String.class));
+  }
+
+  @Resource
+  private UserRepository userDao;
+  @Test
+  public void testHibernate(){
+
   }
 }

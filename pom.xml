@@ -51,15 +51,16 @@
       <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
     <!---->
-    <!--<dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jdbc</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    -->
+
+ <!--   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jdbc</artifactId>
+    </dependency>-->
+
     <!-- 引入druid数据源 -->
     <dependency>
       <groupId>com.alibaba</groupId>
@@ -116,6 +117,14 @@
       <artifactId>jstl</artifactId>
     </dependency>-->
 
+    <!-- 分布式需要的 (dubbo)    还要引入zkclient(这个可以直接去maven仓库找)-->
+    <!--<dependency>
+      <groupId>com.alibaba.boot</groupId>
+      <artifactId>dubbo-spring-boot-starter</artifactId>
+      <version>0.1.0</version>
+    </dependency>-->
+
+    <!-- 分布式也可用springclould （cloud Discovery -> Eureka Serve） -->
   </dependencies>
 
   <build>
